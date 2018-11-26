@@ -14,8 +14,8 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/donations',
-      name: 'Donations',
+      path: '/players',
+      name: 'Players',
       component: Players
     }
   ]
