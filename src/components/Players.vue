@@ -1,6 +1,6 @@
 <template>
   <div class="hero">
-    <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{messagetitle}}</h3>
+    <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{pokerAliastitle}}</h3>
     <div id="app1">
       <v-client-table :columns="columns" :data="players" :options="options">
       </v-client-table>
@@ -18,7 +18,7 @@ export default {
   name: 'Players',
   data () {
     return {
-      messagetitle: 'Players',
+      pokerAliastitle: 'Players',
       players: [],
       errors: [],
       columns: ['pokerAlias', '_id', 'winnings', 'tournaments'],
