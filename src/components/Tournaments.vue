@@ -1,8 +1,8 @@
 <template>
   <div class="hero">
-    <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{pokerAliastitle}}</h3>
+    <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{messageTitle}}</h3>
     <div id="app1">
-      <v-client-table :columns="columns" :data="players" :options="options">
+      <v-client-table :columns="columns" :data="tournaments" :options="options">
       </v-client-table>
     </div>
   </div>
@@ -18,30 +18,31 @@ export default {
   name: 'Players',
   data () {
     return {
-      pokerAliastitle: 'Players',
-      players: [],
+      messageTitle: 'Tournaments',
+      tournaments: [],
       errors: [],
-      columns: ['pokerAlias', 'vpip', 'afq', 'winnings'],
+      columns: ['tournamentName', 'tableSize', 'speed', 'buyIn', 'prizePool'],
       options: {
         headings: {
-          pokerAlias: 'Alias',
-          vpip: 'VPIP%',
-          afq: 'AFQ%',
-          winnings: 'Winnings'
+          tournamentName: 'Tournament Name',
+          tableSize: 'Table Size',
+          speed: 'Speed',
+          buyIn: 'Buy In ',
+          prizePool: 'Prize Pool'
         }
       }
     }
   },
   created () {
-    this.loadPlayers()
+    this.loadTournaments()
   },
   methods: {
-    loadPlayers: function () {
-      PlayerService.fetchPlayers()
+    loadTournaments: function () {
+      PlayerService.fetchTournaments()
         .then(response => {
           // JSON responses are automatically parsed.
-          this.players = response.data
-          console.log(this.players)
+          this.tournaments = response.data
+          console.log(this.tournaments)
         })
         .catch(error => {
           this.errors.push(error)

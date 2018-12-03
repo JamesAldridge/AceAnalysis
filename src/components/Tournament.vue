@@ -7,38 +7,34 @@
 
           <form @submit.prevent="submit">
 
-            <div class="form-group" :class="{ 'form-group--error': $v.pokerAlias.$error }">
-              <label class="form__label">Poker Alias</label>
-              <input class="form__input" placeholder="pokerAlias" v-model.trim="$v.pokerAlias.$model"/>
+            <div class="form-group" :class="{ 'form-group--error': $v.name.$error }">
+              <label class="form__label">Tournament Name</label>
+              <input class="form__input" placeholder="tournament name" v-model.trim="$v.name.$model"/>
             </div>
-            <div class="error" v-if="!$v.pokerAlias.required">pokerAlias is Required</div>
-            <div class="error" v-if="!$v.pokerAlias.minLength">pokerAlias must have at least {{$v.pokerAlias.$params.minLength.min}} letters.</div>
-            <div class="form-group" :class="{ 'form-group--error': $v.winnings.$error }">
-              <label class="form-control-label" name="amount">Total Profit (or loss) </label>
-              <input class="form__input" type="number" v-model.trim="winnings"/>
+            <div class="error" v-if="!$v.name.required">Tournament Name is Required</div>
+            <div class="error" v-if="!$v.name.minLength">Tournament Name must have at least {{$v.name.$params.minLength.min}} letters.</div>
+            <div class="form-group" :class="{ 'form-group--error': $v.tableSize.$error }">
+              <label class="form-control-label" name="amount">Table Size</label>
+              <input class="form__input" type="number" v-model.trim="tableSize"/>
             </div>
-            <div class="error" v-if="!$v.winnings.decimal">Invalid input. Enter your profit/loss</div>
-
-            <div class="form-group" :class="{ 'form-group--error': $v.afq.$error }">
-              <label class="form-control-label" name="amount">AFQ % </label>
-              <input class="form__input" type="number" v-model.trim="afq"/>
+            <div class="error" v-if="!$v.tableSize.decimal">Invalid input. Enter the table size</div>
+            <div class="form-group" :class="{ 'form-group--error': $v.buyIn.$error }">
+              <label class="form-control-label" name="amount">Buy In amount</label>
+              <input class="form__input" type="number" v-model.trim="buyIn"/>
             </div>
-            <div class="error" v-if="!$v.afq.decimal">Invalid input. Enter your profit/loss</div>
-
-
-            <div class="form-group" :class="{ 'form-group--error': $v.vpip.$error }">
-              <label class="form-control-label" name="amount">VPIP % </label>
-              <input class="form__input" type="number" v-model.trim="vpip"/>
+            <div class="error" v-if="!$v.buyIn.decimal">Invalid input. Enter your buyIn</div>
+            <div class="form-group" :class="{ 'form-group--error': $v.prizePool.$error }">
+              <label class="form-control-label" name="amount">Guaranteed Prize Pool</label>
+              <input class="form__input" type="number" v-model.trim="prizePool"/>
             </div>
-            <div class="error" v-if="!$v.vpip.decimal">Invalid input. Enter your profit/loss</div>
-
+            <div class="error" v-if="!$v.prizePool.decimal">Invalid input. Enter your prizePool</div>
             <p>
-              <button class="btn btn-dark btn1" type="submit" :disabled="submitStatus === 'PENDING'">Add player
+              <button class="btn btn-primary btn1" type="submit" :disabled="submitStatus === 'PENDING'">Add Tournament
               </button>
             </p>
-            <p class="typo__p" v-if="submitStatus === 'OK'">Player added!</p>
+            <p class="typo__p" v-if="submitStatus === 'OK'">Tournament added!</p>
             <p class="typo__p" v-if="submitStatus === 'ERROR'">Please Fill in the Form Correctly.</p>
-            <p class="typo__p" v-if="submitStatus === 'PENDING'">adding player...</p>
+            <p class="typo__p" v-if="submitStatus === 'PENDING'">adding tournament...</p>
           </form>
         </div><!-- /col -->
       </div><!-- /row -->
@@ -52,7 +48,7 @@ import VueForm from 'vueform'
 import Vuelidate from 'vuelidate'
 import VueSweetalert from 'vue-sweetalert'
 import PlayerService from '@/services/playerservice'
-import {required, minLength, between, decimal} from 'vuelidate/lib/validators'
+import {required, minLength, numeric, between, decimal} from 'vuelidate/lib/validators'
 
 Vue.use(VueForm, {
   inputClasses: {
@@ -68,30 +64,28 @@ export default {
   name: 'Donate',
   data () {
     return {
-      messagetitle: 'Add a player ',
-      winnings: 0,
-      pokerAlias: '',
-      afq: 0,
-      vpip: 0,
+      messagetitle: 'Add a Tournament ',
+      buyIn: 0,
+      name: '',
       submitStatus: null
     }
   },
   validations: {
-    pokerAlias: {
+    name: {
       required,
       minLength: minLength(5)
     },
-    winnings: {
+    buyIn: {
       required,
       decimal
     },
-    afq: {
+    prizePool: {
       required,
       decimal
     },
-    vpip: {
+    tableSize: {
       required,
-      decimal
+      numeric
     }
   },
   methods: {
@@ -105,22 +99,20 @@ export default {
         this.submitStatus = 'PENDING'
         setTimeout(() => {
           this.submitStatus = 'OK'
-          let player = {
-            pokerAlias: this.pokerAlias,
-            winnings: this.winnings,
-            afq: this.afq,
-            vpip: this.vpip
+          let tournament = {
+            name: this.name,
+            buyIn: this.buyIn
           }
-          this.player = player
-          console.log('Submitting in PlayerForm : ' + JSON.stringify(this.player, null, 5))
-          this.submitPlayer(this.player)
+          this.tournament = tournament
+          console.log('Submitting in Tournamnet form : ' + JSON.stringify(this.tournament, null, 5))
+          this.submitTournament(this.tournament)
         }, 500)
       }
     },
-    submitPlayer: function (player) {
+    submitTournament: function (tournament) {
       console.log('submitDonation!')
-      console.log('Submitting in submitDonation : ' + player)
-      PlayerService.postPlayer(player)
+      console.log('Submitting in submitDonation : ' + tournament)
+      PlayerService.postTournaments(tournament)
         .then(response => {
           // JSON responses are automatically parsed.
           console.log(response)
@@ -152,10 +144,6 @@ export default {
   }
   .donate-form .form-control-label.text-left{
     text-align: left;
-  }
-
-  button {
-    color: gold;
   }
 
   label {
@@ -195,7 +183,7 @@ export default {
 
   .error {
     border-color: red;
-    background: purple;
+    background: #157ffb;
     color: whitesmoke;
   }
 

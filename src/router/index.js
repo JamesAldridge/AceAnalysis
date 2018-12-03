@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Players from '@/components/Players'
 import Player from '@/components/Player'
+import Tournaments from '@/components/Tournaments'
+import Tournament from '@/components/Tournament'
 import About from '@/components/About'
 
 Vue.use(Router)
@@ -25,8 +27,13 @@ export default new Router({
     },
     {
       path: '/tournaments',
-      name: 'Players',
-      component: Player
+      name: 'Tournaments',
+      component: Tournaments
+    },
+    {
+      path: '/addTournament',
+      name: 'Tournaments',
+      component: Tournament
     }
   ]
 })
