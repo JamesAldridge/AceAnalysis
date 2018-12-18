@@ -118,8 +118,8 @@ export default {
       }
     },
     submitPlayer: function (player) {
-      console.log('submitDonation!')
-      console.log('Submitting in submitDonation : ' + player)
+      console.log('submitPlayer!')
+      console.log('Submitting in submitPlayer : ' + player)
       PlayerService.postPlayer(player)
         .then(response => {
           // JSON responses are automatically parsed.

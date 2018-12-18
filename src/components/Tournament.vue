@@ -17,7 +17,7 @@
               <label class="form-control-label" name="amount">Table Size</label>
               <input class="form__input" type="number" v-model.trim="tableSize"/>
             </div>
-            <div class="error" v-if="!$v.tableSize.decimal">Invalid input. Enter the table size</div>
+            <div class="error" v-if="!$v.tableSize.numeric">Invalid input. Enter the table size</div>
             <div class="form-group" :class="{ 'form-group--error': $v.buyIn.$error }">
               <label class="form-control-label" name="amount">Buy In amount</label>
               <input class="form__input" type="number" v-model.trim="buyIn"/>
@@ -111,7 +111,7 @@ export default {
     },
     submitTournament: function (tournament) {
       console.log('submitDonation!')
-      console.log('Submitting in submitDonation : ' + tournament)
+      console.log('Submitting in submitPlayer : ' + tournament)
       PlayerService.postTournaments(tournament)
         .then(response => {
           // JSON responses are automatically parsed.

@@ -1,6 +1,9 @@
 <template>
   <div class="hero">
-    <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{pokerAliastitle}}</h3>
+    <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>
+      <img src="../assets/shark.png" class="" style="padding: 5px">
+      {{pokerAliastitle}}
+    </h3>
     <div id="app1">
       <v-client-table :columns="columns" :data="players" :options="options">
       </v-client-table>
@@ -58,6 +61,9 @@ export default {
     text-align: center;
     font-size: 45pt;
     margin-bottom: 10px;
+  }
+  h3{
+    margin-top: 0px !important;
   }
   #app1 {
     width: 60%;

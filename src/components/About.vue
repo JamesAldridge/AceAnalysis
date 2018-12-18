@@ -5,12 +5,13 @@
     <table align="center">
       <tr>
         <td class="td-info">
-          <p class="lead"><b><i>Poker Analytics</i></b>
-          <p>AceAnalysis stores stats on poker players and tournaments!</p>
-          <p>Check out player Hud stats <a href ="https://www.pokernews.com/strategy/a-guide-to-setting-up-your-online-poker-heads-up-display-hud-19892.htm">here</a></p>
+          <p>The aim of AceAnalysis is to improve your poker game</p>
+          <p>you can store info on poker players and tournaments.</p>
+          <p>Check out an explanation of Hud stats <a href ="https://www.pokernews.com/strategy/a-guide-to-setting-up-your-online-poker-heads-up-display-hud-19892.htm">by clicking this link!</a></p>
         </td>
       </tr>
     </table>
+    <img src="../assets/shark.png" class="img-circle" style="padding: 5px">
   </div>
 </template>
 

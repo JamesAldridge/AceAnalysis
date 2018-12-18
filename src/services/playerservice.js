@@ -14,5 +14,8 @@ export default {
   postTournaments (tournament) {
     return Api().post('/tournament', tournament,
       { headers: {'Content-type': 'application/json'} })
+  },
+  upvoteTournament (id) {
+    return Api().put(`/tournaments/${id}/vote`)
   }
 }
