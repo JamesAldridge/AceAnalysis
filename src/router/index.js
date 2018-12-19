@@ -5,11 +5,17 @@ import Player from '@/components/Player'
 import Tournaments from '@/components/Tournaments'
 import Tournament from '@/components/Tournament'
 import About from '@/components/About'
+import Home from '@/components/Home'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/Home',
+      name: 'Home',
+      component: Home
+    },
     {
       path: '/players',
       name: 'Players',
