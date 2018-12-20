@@ -25,9 +25,10 @@ export default {
       messageTitle: 'Tournaments',
       tournaments: [],
       errors: [],
-      columns: ['tournamentName', 'tableSize', 'speed', 'buyIn', 'prizePool', 'upvotes', 'upvote'],
+      columns: ['_id','tournamentName', 'tableSize', 'speed', 'buyIn', 'prizePool', 'upvotes', 'upvote'],
       options: {
         headings: {
+          _id: 'ID',
           tournamentName: 'Tournament Name',
           tableSize: 'Table Size',
           speed: 'Speed',
@@ -54,10 +55,11 @@ export default {
           console.log(error)
         })
     },
-    // Fetches Donations when the component is created.
+
     upvote: function (id) {
       PlayerService.upvoteTournament(id)
         .then(response => {
+          this.loadTournaments()
           console.log(response)
         })
         .catch(error => {
