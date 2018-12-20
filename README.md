@@ -24,6 +24,7 @@ This was built using a MEVN Stack. Database persistence is achieved by using mla
 #### Dependencies
 +  axios: ^0.18.,
 +  bootstrap-vue: ^2.0.0-rc.11,
++  casperjs: ^1.1.4,
 +  vue: ^2.5.2,
 +  vue-i18n": ^8.5.0,
 +  vue-router": ^3.0.1,
@@ -36,9 +37,25 @@ This was built using a MEVN Stack. Database persistence is achieved by using mla
 +  vuetify: ^1.3.9
 
 ## Installation requirements and Running the app.
-todo
 
-Go to http://localhost:8080/#/Home
+
+Clone https://github.com/JamesAldridge/pokerApp and `cd` into the directory.
+```
+$ npm install
+$ npm run start
+```
+Once the node server is running then in a seperate terminal Clone this project  and `cd` into the` directory
+```
+$ npm install
+
+$ npm run start
+```
+To run tests execute
+```
+$ npm test
+```
+
+App should be available at http://localhost:8080/#/Home
 
 #### API interface.
 
