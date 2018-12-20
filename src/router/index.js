@@ -6,6 +6,7 @@ import Tournaments from '@/components/Tournaments'
 import Tournament from '@/components/Tournament'
 import About from '@/components/About'
 import Home from '@/components/Home'
+import Stats from '@/components/Stats'
 
 Vue.use(Router)
 
@@ -15,6 +16,11 @@ export default new Router({
       path: '/Home',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/Stats',
+      name: 'Stats',
+      component: Stats
     },
     {
       path: '/players',
