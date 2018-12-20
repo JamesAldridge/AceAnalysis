@@ -7,12 +7,12 @@
 
           <form @submit.prevent="submit">
 
-            <div class="form-group" :class="{ 'form-group--error': $v.name.$error }">
+            <div class="form-group" :class="{ 'form-group--error': $v.tournamentName.$error }">
               <label class="form__label">Tournament Name</label>
-              <input class="form__input" placeholder="tournament name" v-model.trim="$v.name.$model"/>
+              <input class="form__input" placeholder="tournament name" v-model.trim="$v.tournamentName.$model"/>
             </div>
-            <div class="error" v-if="!$v.name.required">Tournament Name is Required</div>
-            <div class="error" v-if="!$v.name.minLength">Tournament Name must have at least {{$v.name.$params.minLength.min}} letters.</div>
+            <div class="error" v-if="!$v.tournamentName.required">Tournament Name is Required</div>
+            <div class="error" v-if="!$v.tournamentName.minLength">Tournament Name must have at least {{$v.name.$params.minLength.min}} letters.</div>
             <div class="form-group" :class="{ 'form-group--error': $v.tableSize.$error }">
               <label class="form-control-label" name="amount">Table Size</label>
               <input class="form__input" type="number" v-model.trim="tableSize"/>
@@ -48,7 +48,7 @@ import VueForm from 'vueform'
 import Vuelidate from 'vuelidate'
 import VueSweetalert from 'vue-sweetalert'
 import PlayerService from '@/services/playerservice'
-import {required, minLength, numeric, between, decimal} from 'vuelidate/lib/validators'
+import {required, minLength, numeric, decimal} from 'vuelidate/lib/validators'
 
 Vue.use(VueForm, {
   inputClasses: {
@@ -61,17 +61,17 @@ Vue.use(Vuelidate)
 Vue.use(VueSweetalert)
 
 export default {
-  name: 'Donate',
+  tournamentName: 'Tournament',
   data () {
     return {
       messagetitle: 'Add a Tournament ',
       buyIn: 0,
-      name: '',
+      tournamentName: '',
       submitStatus: null
     }
   },
   validations: {
-    name: {
+    tournamentName: {
       required,
       minLength: minLength(5)
     },
@@ -100,8 +100,10 @@ export default {
         setTimeout(() => {
           this.submitStatus = 'OK'
           let tournament = {
-            name: this.name,
-            buyIn: this.buyIn
+            tournamentName: this.tournamentName,
+            buyIn: this.buyIn,
+            tableSize: this.tableSize,
+            prizePool: this.prizePool
           }
           this.tournament = tournament
           console.log('Submitting in Tournamnet form : ' + JSON.stringify(this.tournament, null, 5))
@@ -110,7 +112,7 @@ export default {
       }
     },
     submitTournament: function (tournament) {
-      console.log('submitDonation!')
+      console.log('submitTournament')
       console.log('Submitting in submitPlayer : ' + tournament)
       PlayerService.postTournaments(tournament)
         .then(response => {

@@ -25,7 +25,6 @@
             </div>
             <div class="error" v-if="!$v.afq.decimal">Invalid input. Enter your profit/loss</div>
 
-
             <div class="form-group" :class="{ 'form-group--error': $v.vpip.$error }">
               <label class="form-control-label" name="amount">VPIP % </label>
               <input class="form__input" type="number" v-model.trim="vpip"/>
