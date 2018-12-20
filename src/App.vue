@@ -16,7 +16,7 @@
               <b-nav-item to="/addTournament"><i class="fa fa-plus" style="padding: 5px"> Add Tournament</i></b-nav-item>
             </b-nav-item-dropdown>
             <b-nav-item to="/Stats"><i class="fas fa-chart-line"> Statistics</i></b-nav-item>
-            <b-nav-item to="/Home"><i class="fa fa-globe-europe" style="padding: 5px"> Live Events</i></b-nav-item>
+            <b-nav-item to="/Events"><i class="fa fa-globe-europe" style="padding: 5px"> Live Events</i></b-nav-item>
 
           </b-navbar-nav>
           <b-navbar-nav class="ml-auto">
@@ -107,7 +107,6 @@ body{
 .dropdown-menu-right > a {
   color: gold;
 }
-
 
 .navbar-dark .navbar-nav .nav-link{
   color: palegoldenrod !important;
