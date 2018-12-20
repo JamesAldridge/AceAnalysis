@@ -20,7 +20,18 @@ This was built using a MEVN Stack. Database persistence is achieved by using mla
  + Check Live Events
 
 #### Dependencies
-todo
++  axios: ^0.18.,
++  bootstrap-vue: ^2.0.0-rc.11,
++  vue: ^2.5.2,
++  vue-i18n": ^8.5.0,
++  vue-router": ^3.0.1,
++  vue-sweetalert: ^0.1.18,
++  vue-sweetalert2: ^1.6.3,
++  vue-tables-2: ^1.4.70,
++  vue2-google-maps: ^0.10.5,
++  vueform: ^2.0.0,
++  vuelidate: ^0.7.4,
++  vuetify: ^1.3.9
 
 ## Installation requirements and Running the app.
 todo
@@ -96,8 +107,12 @@ I had began to add localization to the application but did not complete this in 
 ```
 
 
-## References
-todo
+## References/Resources Used
++ Docs.mlab.com. (2018). Quick-Start Guide to mLab | mLab Documentation & Support. [online] 
+ Available at: https://docs.mlab.com/ 
++ https://developers.google.com/maps/documentation/
++ https://ddrohan.github.io/wit-wad-2-2018/
+
 
 
 
