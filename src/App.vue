@@ -31,17 +31,15 @@
     <!--Add content to this footer-->
     <div id="footer">
       <b-nav>
-        <b-nav-item-dropdown id="nav7_ddown" text="English" extra-toggle-classes="nav-link-custom" right>
+        <b-nav-item-dropdown id="nav7_ddown" text="English"  extra-toggle-classes="nav-link-custom-footer" right>
           <b-dropdown-item href="#">English</b-dropdown-item>
           <b-dropdown-item href="#">Deutsch</b-dropdown-item>
           <b-dropdown-item disabled href="#">中文</b-dropdown-item>
           <b-dropdown-item disabled href="#">Español</b-dropdown-item>
           <b-dropdown-item disabled href="#">Français</b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item to="/#"><i class="fa fa-facebook-square" style="padding: 5px">Facebook</i></b-nav-item>
-        <b-nav-item to="/#"><i class="fa fa-twitter-square" style="padding: 5px">Twitter</i></b-nav-item>
-
-        <b-nav-item disabled>Disabled</b-nav-item>
+        <b-nav-item href="https://www.facebook.com/PokerStars/"><i class="darkText fa fa-facebook-square" style="padding: 5px"> Facebook</i></b-nav-item>
+        <b-nav-item href="https://twitter.com/starssupport?lang=en"><i class="darkText fa fa-twitter-square" style="padding: 5px"> Twitter</i></b-nav-item>
       </b-nav>
     </div>
   </div>
@@ -71,7 +69,10 @@ export default {
 b-navbar{
   color: gold !important;
   background-color: #343a40;
+}
 
+.bg-dark{
+  background-color: #2e3338 !important;
 }
 
 #headerNav{
@@ -90,7 +91,7 @@ body{
 #footer{
   position: fixed;
   height: 50px;
-  background-color: #343a40;
+  background-image: url("http://www.jhlabs.com/ip/metal3.jpg");
   bottom: 0px;
   left: 0px;
   right: 0px;
@@ -106,6 +107,9 @@ body{
 }
 .dropdown-menu-right > a {
   color: gold;
+}
+  .darkText, .nav-link-custom-footer{
+  color: black;
 }
 
 .navbar-dark .navbar-nav .nav-link{

@@ -6,6 +6,7 @@
     </h3>
     <div id="app1">
       <v-client-table :columns="columns" :data="players" :options="options">
+        <a slot="remove" slot-scope="props" class="fa fa-trash-o fa-2x" @click="deletePlayer(props.row._id)"></a>
       </v-client-table>
     </div>
   </div>
@@ -23,10 +24,12 @@ export default {
     return {
       pokerAliastitle: 'Players',
       players: [],
+      props: ['_id'],
       errors: [],
-      columns: ['pokerAlias', 'vpip', 'afq', 'winnings'],
+      columns: ['_id', 'pokerAlias', 'vpip', 'afq', 'winnings', 'remove'],
       options: {
         headings: {
+          id: '_ID',
           pokerAlias: 'Alias',
           vpip: 'VPIP%',
           afq: 'AFQ%',
@@ -50,6 +53,35 @@ export default {
           this.errors.push(error)
           console.log(error)
         })
+    },
+
+    deletePlayer: function (id) {
+      this.$swal({
+        title: 'Are you totaly sure you want to permanently delete this item?',
+        text: 'You can\'t Undo this action',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        cancelButtonText: 'Cancel',
+        showCloseButton: true
+        // showLoaderOnConfirm: true
+      }).then((result) => {
+        console.log('SWAL Result : ' + result.value)
+        PlayerService.deletePlayer(id)
+          .then(response => {
+            // JSON responses are automatically parsed.
+            this.message = response.data
+            console.log(this.message)
+            this.loadPlayers()
+            // Vue.nextTick(() => this.$refs.vuetable.refresh())
+            this.$swal('Deleted', 'You successfully deleted this Player ' + JSON.stringify(response.data, null, 5), 'success')
+          })
+          .catch(error => {
+            this.$swal('ERROR', 'Something went wrong trying to Delete ' + error, 'error')
+            this.errors.push(error)
+            console.log(error)
+          })
+      })
     }
   }
 }

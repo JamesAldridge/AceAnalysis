@@ -17,5 +17,8 @@ export default {
   },
   upvoteTournament (id) {
     return Api().put(`/tournament/${id}/vote`)
+  },
+  deletePlayer (id) {
+    return Api().delete(`/players/${id}`)
   }
 }
