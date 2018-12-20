@@ -1,6 +1,8 @@
 # Web Application Development Assignment 2 - AceAnalysis Design Document/README.
-Name: James Aldridge
-Student Number: 20071749
++ Name: James Aldridge
++ Student Number: 20071749
+
+<img width="318" alt="screen shot 2018-12-20 at 20 32 28" src="https://user-images.githubusercontent.com/14348553/50313126-4f1ca080-04a2-11e9-9ab2-19414ee8bf82.png">
 
 ## About.
 
@@ -61,7 +63,7 @@ The database consists of Tournaments and Players. Below is the schema for both.
         "vpip": 19
     },
 ```
-#### Player
+#### Tournament
 ```{
         "tournamentName": "Super Highroller",
         "buyIn": 200,
@@ -72,8 +74,34 @@ The database consists of Tournaments and Players. Below is the schema for both.
     },
 ```
 
-## UI Design.
+## UI Design
 
+#### Header/Navbar
+<img width="1438" alt="screen shot 2018-12-20 at 20 30 01" src="https://user-images.githubusercontent.com/14348553/50313225-9571ff80-04a2-11e9-9b06-1cf3014cac3a.png">
+
+#### HomePage (slideshow)
+<img width="1440" alt="screen shot 2018-12-20 at 20 30 21" src="https://user-images.githubusercontent.com/14348553/50313226-960a9600-04a2-11e9-8a70-8946a2d33a24.png">
+<img width="1440" alt="screen shot 2018-12-20 at 20 30 38" src="https://user-images.githubusercontent.com/14348553/50313227-960a9600-04a2-11e9-9355-a2ccc1042de6.png">
+<img width="1440" alt="screen shot 2018-12-20 at 20 30 44" src="https://user-images.githubusercontent.com/14348553/50313228-960a9600-04a2-11e9-836c-062d9ef384ef.png">
+<img width="1436" alt="screen shot 2018-12-20 at 20 30 51" src="https://user-images.githubusercontent.com/14348553/50313229-960a9600-04a2-11e9-804b-6d959b20226d.png">
+
+#### View Players
+<img width="1440" alt="screen shot 2018-12-20 at 20 31 05" src="https://user-images.githubusercontent.com/14348553/50313230-96a32c80-04a2-11e9-9e76-5bd9b77d3926.png">
+
+#### Add a Player
+<img width="1440" alt="screen shot 2018-12-20 at 20 31 13" src="https://user-images.githubusercontent.com/14348553/50313231-96a32c80-04a2-11e9-9708-220bd92acda2.png">
+
+#### View Tournaments
+<img width="1439" alt="screen shot 2018-12-20 at 20 31 21" src="https://user-images.githubusercontent.com/14348553/50313232-96a32c80-04a2-11e9-868e-e3bd71ecf60f.png">
+
+#### Add a Tournament
+<img width="1440" alt="screen shot 2018-12-20 at 20 31 31" src="https://user-images.githubusercontent.com/14348553/50313233-973bc300-04a2-11e9-8bdb-aeb331c3f3ce.png">
+
+#### View Statistics
+<img width="1438" alt="screen shot 2018-12-20 at 20 31 44" src="https://user-images.githubusercontent.com/14348553/50313234-973bc300-04a2-11e9-8354-08f87d07e265.png">
+
+#### View Live Events
+<img width="1440" alt="screen shot 2018-12-20 at 20 32 01" src="https://user-images.githubusercontent.com/14348553/50313236-97d45980-04a2-11e9-8151-935e6c7b6522.png">
 
 ## Routing.
 
@@ -86,10 +114,18 @@ The database consists of Tournaments and Players. Below is the schema for both.
 + /Events/ - displays live events page
 
 
+## DX Approach
 
++ capsar test
++ unit test
++ git repo with commit history
++ ES6 + JS best practices
 
 ## Pending features
-I had began to add localization to the application but did not complete this in time for the deadline. I had planned to add a collection for poker hand histories. There was a lot of complexity involved in tracking all the events in a poker hand. I planned to do this with the intent of turning the events into an animation to replay the events of the hand but due to time constraints this was not possible. I had enough time to develop the schema for the HandHistory but did not manage to convert this to an animation. Below is the schema for HandHistory
+I had began to add localization to the application but did not complete this in time for the deadline. 
+<img width="340" alt="screen shot 2018-12-20 at 20 32 16" src="https://user-images.githubusercontent.com/14348553/50313237-97d45980-04a2-11e9-9e91-5c42f8400305.png">
+
+I had planned to add a collection for poker hand histories. There was a lot of complexity involved in tracking all the events in a poker hand. I planned to do this with the intent of turning the events into an animation to replay the events of the hand but due to time constraints this was not possible. I had enough time to develop the schema for the HandHistory but did not manage to convert this to an animation. Below is the schema for HandHistory
 ```
 {
     _id: "100",
