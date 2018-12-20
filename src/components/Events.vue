@@ -4,23 +4,22 @@
     <h2>
       Check Out some of the live events taking Place
     </h2>
-      <ul>
-        <li>
-          <h3>Megastacks Dublin</h3>
-          <p>2.5k buy-in taking place January 27th in Clayton Hotel.</p>
-        </li>
-        <li>
-          <h3>MegaStacks Ulster</h3>
-          <p>Fitzwilliam Hotel Belfast hosting the 50k guaranteed event.</p>
-        </li>
-
-        <li>
-          <h3>Megastacks Connacht</h3>
-          <p>Galway Bay Hotel hosting the 1k buy in event.</p>
-        </li>
+      <ul class="list-unstyled">
+        <b-media tag="li">
+          <h5 class="mt-0 mb-1">Megastacks Leinster</h5>
+          Taking place at the Clayton Hotel Dublin January 26th. €800 buy-in, with a prize pool of a guaranteed 100k
+        </b-media>
+        <b-media tag="li" class="my-4">
+          <h5 class="mt-0 mb-1">Megastacks Ulster</h5>
+          Taking place at the Fitzwilliam Hotel Belfast February 19th. €500 buy-in, with a prize pool of a guaranteed 50k
+        </b-media>
+        <b-media tag="li">
+          <h5 class="mt-0 mb-1">Megastacks Connact</h5>
+          Taking place at the Galway Bay Hotel March 3rd. €500 buy-in, with a prize pool of a guaranteed 50k
+        </b-media>
       </ul>
     </div>
-  <gmap-map
+  <gmap-map id="gmap"
     v-bind:center="center"
     v-bind:zoom="6"
     v-bind:map-type-id="mapTypeId">
@@ -65,41 +64,7 @@ export default {
     width: 100%;
   }
 
-  * {margin: 0; padding: 0;}
-
-  div {
-    margin: 20px;
-  }
-
-  ul {
-    list-style-type: none;
-    width: 500px;
-  }
-
-  h3 {
-    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
-  }
-
-  li img {
-    float: left;
-    margin: 0 15px 0 0;
-  }
-
-  li p {
-    font: 200 12px/1.5 Georgia, Times New Roman, serif;
-  }
-
-  li {
-    padding: 10px;
-    overflow: auto;
-  }
-
-  li:hover {
-    background: #eee;
-    cursor: pointer;
-  }
-
-  .centerApp {
-    margin: auto;
+  #gmap{
+  margin: auto;
   }
 </style>
