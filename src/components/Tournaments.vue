@@ -1,6 +1,6 @@
 <template>
   <div class="hero">
-    <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>
+    <h3 class="vue-title">
       <img src="../assets/trophyIcon.png" class="headerIcon" style="padding: 5px">
       {{messageTitle}}</h3>
     <div id="app1">

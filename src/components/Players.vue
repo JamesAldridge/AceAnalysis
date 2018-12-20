@@ -1,6 +1,6 @@
 <template>
   <div class="hero">
-    <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>
+    <h3 class="vue-title">
       <img src="../assets/shark.png" class="" style="padding: 5px">
       {{pokerAliastitle}}
     </h3>

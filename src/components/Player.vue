@@ -1,6 +1,6 @@
 <template>
   <div id="app1" class="hero">
-    <h3 class="vue-title"><i class="fa fa-money" style="padding: 3px"></i>{{messagetitle}}</h3>
+    <h3 class="vue-title"><i class="fa fa-user" style="padding: 3px"></i>{{messagetitle}}</h3>
     <div class="container mt-3 mt-sm-5">
       <div class="row justify-content-center">
         <div class="col-md-6">
@@ -13,7 +13,7 @@
             </div>
             <div class="error" v-if="!$v.pokerAlias.required">pokerAlias is Required</div>
             <div class="error" v-if="!$v.pokerAlias.minLength">pokerAlias must have at least {{$v.pokerAlias.$params.minLength.min}} letters.</div>
-            <div class="form-group" :class="{ 'form-group--error': $v.winnings.$error }">
+            <div class="form-group" :class="{ 'form-group--etrror': $v.winnings.$error }">
               <label class="form-control-label" name="amount">Total Profit (or loss) </label>
               <input class="form__input" type="number" v-model.trim="winnings"/>
             </div>
